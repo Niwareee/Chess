@@ -151,7 +151,7 @@ def validationPieceABouger(*args):
         boutonAide.config(state=NORMAL)
         reponsePieceCible.focus()
 
-
+#
 def changeJoueur():
     global couleurAdverse
     if couleurAdverse == "Noir":
