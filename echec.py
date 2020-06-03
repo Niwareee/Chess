@@ -5,7 +5,6 @@ import string
 from PIL import Image
 from PIL import ImageTk
 
-
 # definition du plateau de jeux avec contour du plateua
 def initPlato():
     global plato
@@ -137,21 +136,20 @@ def validationPieceABouger(*args):
         isSaisieErrone = True
     else:
         if (valeurPieceABouger[:1]) not in listeLettreAutorise:
-            print("saisie invalide,lettre interdite")
+            print("Saisie invalide: lettre interdite")
             isSaisieErrone = True
 
         if (valeurPieceABouger[1]) not in listeChiffreAutorise:
-            print("saisie invalide,chiffre interdit")
+            print("Saisie invalide: chiffre interdit")
             isSaisieErrone = True
 
     if not isSaisieErrone:
         # todo autoriser la saisie de la cible choisie
-        print("Veuillez proceder à la saisie de la case ciblé")
+        print("Veuillez procéder à la saisie de la case ciblé")
         reponsePieceCible.config(state=NORMAL)
         boutonAide.config(state=NORMAL)
         reponsePieceCible.focus()
 
-#
 def changeJoueur():
     global couleurAdverse
     if couleurAdverse == "Noir":
@@ -161,7 +159,7 @@ def changeJoueur():
 
 
 def bougePiece(coordoneeSource, coordonerCible):
-    print("je bouge de", coordoneeSource, "a", coordonerCible)
+    print("Je bouge de", coordoneeSource, "a", coordonerCible)
     # todo recupérer l'indice colonne source, récupérer indice ligne source
     colonneSource = coordoneeSource[:1]
     colonneCible = coordonerCible[:1]
@@ -395,16 +393,16 @@ def validationCible(*args):
     valeurPieceCible = reponsePieceCible.get();
     print(valeurPieceCible)
     if (len(valeurPieceCible)) != 2:
-        print("saisie invalide, trop de charactere")
+        print("Saisie invalide: trop de charactère")
         isSaisieErrone = True
     else:
 
         if (valeurPieceCible[:1]) not in listeLettreAutorise:
-            print("saisie invalide,lettre interdite")
+            print("Saisie invalide: lettre interdite")
             isSaisieErrone = True
 
         if (valeurPieceCible[1]) not in listeChiffreAutorise:
-            print("saisie invalide,chiffre interdit")
+            print("Saisie invalide: chiffre interdit")
             isSaisieErrone = True
 
     if not isSaisieErrone:
@@ -414,7 +412,7 @@ def validationCible(*args):
         coordonneeCible = ((int(ligneCible), indiceColonneCible))
         listePossible = simulation()
         if coordonneeCible in listePossible:
-            print("Deplacemnt piece")
+            print("Deplacement piece")
             bougePiece(reponsePieceABouger.get(), valeurPieceCible)
 
 
@@ -496,12 +494,10 @@ creatPlato()
 # chargement graphique des image
 # cavalier blanc
 ##
-# imagePilCavaBlanc = Image.open('D:/projeteEchecs/piece blanc/cavablanc.png')
-imagePilCavaBlanc = Image.open('C:/Users/boul/PycharmProjects/ISN/piece blanc/cavablanc.png')
+imagePilCavaBlanc = Image.open('piece blanc/cavablanc.png')
 imagePilCavaBlanc = imagePilCavaBlanc.resize((int(tailleCase / 2), int(tailleCase / 2)), Image.ANTIALIAS)
 imageTkCavalierBlanc = ImageTk.PhotoImage(imagePilCavaBlanc)
 # pionblanc
-# imagePilPionBlanc = Image.open('D:/projeteEchecs/piece blanc/pionblanc.png')
 imagePilPionBlanc = Image.open('piece blanc/pionblanc.png')
 imagePilPionBlanc = imagePilPionBlanc.resize((int(tailleCase / 2), int(tailleCase / 2)), Image.ANTIALIAS)
 imageTkPionBlanc = ImageTk.PhotoImage(imagePilPionBlanc)
